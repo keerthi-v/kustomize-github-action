@@ -1,6 +1,6 @@
 name: 'Kustomize GitHub Actions'
 on:
-  - pull_request
+  - push
 jobs:
   kustomize:
     name: 'Kustomize'
