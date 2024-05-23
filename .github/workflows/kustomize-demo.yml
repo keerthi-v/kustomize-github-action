@@ -1,0 +1,19 @@
+name: 'Kustomize GitHub Actions'
+on:
+  - pull_request
+jobs:
+  kustomize:
+    name: 'Kustomize'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@master
+      - name: 'Kustomize Build'
+        uses: keerthi-v/kustomize-github-action@master
+        with:
+          kustomize_version: '3.0.0'
+          kustomize_build_dir: '.'
+          kustomize_comment: false
+          kustomize_output_file: "gitops/rendered.yaml"
+          kustomize_build_options: "--load_restrictor none"
+          enable_alpha_plugins: true
